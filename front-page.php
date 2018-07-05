@@ -32,22 +32,10 @@
           )
       ));
       while($homepageEvents->have_posts()) {
-          $homepageEvents->the_post(); ?>
-          <div class="event-summary">
-            <a class="event-summary__date t-center" href="<?php permalink_link();?>">
-              <span class="event-summary__month"><?php 
-              $eventDate = new DateTime(get_field('event_date'));
-              echo $eventDate->format('M');
-              ?></span>
-              <span class="event-summary__day"><?php  echo $eventDate->format('d');?></span>  
-            </a>
-            <div class="event-summary__content">
-              <h5 class="event-summary__title headline headline--tiny"><a href="<?php permalink_link()?>"><?php the_title()?></a></h5>
-              <p><?php echo wp_trim_words(get_the_content( ), 18)?>. <a href="<?php permalink_link()?>" class="nu gray">Learn more</a></p>
-            </div>
-          </div>
+          $homepageEvents->the_post(); 
+          get_template_part( 'template-parts/content', 'event');
           
-      <?php }
+       }
       ?>
       
       <p class="t-center no-margin"><a href="<?php echo get_post_type_archive_link( 'event' ); ?>" class="btn btn--blue">View All Events</a></p>
@@ -83,33 +71,33 @@
 </div>
 
 <div class="hero-slider">
-<div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/bus.jpg') ?>);">
-  <div class="hero-slider__interior container">
-    <div class="hero-slider__overlay">
-      <h2 class="headline headline--medium t-center">Free Transportation</h2>
-      <p class="t-center">All students have free unlimited bus fare.</p>
-      <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
+  <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/bus.jpg') ?>);">
+    <div class="hero-slider__interior container">
+      <div class="hero-slider__overlay">
+        <h2 class="headline headline--medium t-center">Free Transportation</h2>
+        <p class="t-center">All students have free unlimited bus fare.</p>
+        <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
+      </div>
     </div>
   </div>
-</div>
-<div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/apples.jpg') ?>);">
-  <div class="hero-slider__interior container">
-    <div class="hero-slider__overlay">
-      <h2 class="headline headline--medium t-center">An Apple a Day</h2>
-      <p class="t-center">Our dentistry program recommends eating apples.</p>
-      <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
+  <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/apples.jpg') ?>);">
+    <div class="hero-slider__interior container">
+      <div class="hero-slider__overlay">
+        <h2 class="headline headline--medium t-center">An Apple a Day</h2>
+        <p class="t-center">Our dentistry program recommends eating apples.</p>
+        <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
+      </div>
     </div>
   </div>
-</div>
-<div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/bread.jpg') ?>);">
-  <div class="hero-slider__interior container">
-    <div class="hero-slider__overlay">
-      <h2 class="headline headline--medium t-center">Free Food</h2>
-      <p class="t-center">Fictional University offers lunch plans for those in need.</p>
-      <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
+  <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/bread.jpg') ?>);">
+    <div class="hero-slider__interior container">
+      <div class="hero-slider__overlay">
+        <h2 class="headline headline--medium t-center">Free Food</h2>
+        <p class="t-center">Fictional University offers lunch plans for those in need.</p>
+        <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
+      </div>
     </div>
   </div>
-</div>
 </div>
 <?php get_footer(); ?>
 
