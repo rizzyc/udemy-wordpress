@@ -8,8 +8,9 @@ class HeroSlider {
 
   initSlider() {
     this.els.slick({
-      autoplay: false,
+      autoplay: true,
       arrows: false,
+      fade: true,
       dots: true
     });
   }
